@@ -18,6 +18,8 @@ namespace UserRegisteration
             ValidatingLastName();
             Console.WriteLine("Validating Email Address");
             ValidatingEmailId();
+            Console.WriteLine("Validating Phone Number");
+            ValidatingPhoneNum();
 
         }
         public void ValidatingFirstName()
@@ -58,6 +60,22 @@ namespace UserRegisteration
             Console.WriteLine("Enter email Id");
             string emails = Console.ReadLine();
             bool res = regex.IsMatch(emails);
+            if (res)
+            {
+                Console.WriteLine("valid email address");
+            }
+            else
+            {
+                Console.WriteLine("Please enter a Valid Email!");
+            }
+        }
+        public void ValidatingPhoneNum()
+        {
+            string phoneNumPattern = @"^[0-9]+[\s]+[0-9]{10}$";
+            Regex regex = new Regex(phoneNumPattern);
+            Console.WriteLine("Enter valid Phone Number");
+            string phoneNumber = Console.ReadLine();
+            bool res = regex.IsMatch(phoneNumber);
             if (res)
             {
                 Console.WriteLine("valid email address");
